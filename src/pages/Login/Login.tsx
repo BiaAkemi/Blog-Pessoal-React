@@ -1,20 +1,22 @@
 import React, { ChangeEvent, useContext, useEffect, useState } from 'react';
 import './Login.css';
-
 import { Link, useNavigate } from 'react-router-dom';
-
 import { AuthContext } from '../../contexts/AuthContext';
 import UsuarioLogin from '../../models/UsuarioLogin';
 import { RotatingLines } from 'react-loader-spinner';
 
 function Login() {
+
+  // useContext = acessa o contexto, e pega as infos que precisamos
+  const { usuario, handleLogin } = useContext(AuthContext);
+
+  // nevegação do usuário
   let navigate = useNavigate();
 
+  // Variável de estado, Email/Senha para fazer o Login
   const [usuarioLogin, setUsuarioLogin] = useState<UsuarioLogin>(
     {} as UsuarioLogin
   );
-
-  const { usuario, handleLogin } = useContext(AuthContext);
 
   const {isLoading} = useContext(AuthContext) 
 
