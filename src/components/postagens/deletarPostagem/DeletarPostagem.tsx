@@ -1,10 +1,15 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
-import { AuthContext } from '../../../contexts/AuthContext'
-import Postagem from '../../../models/Postagem'
 import { buscar, deletar } from '../../../services/Service'
+import { AuthContext } from '../../../contexts/AuthContext'
+import { useNavigate, useParams } from 'react-router-dom'
+import { toastAlerta } from '../../../util/toastAlerta'
+import { useContext, useEffect, useState } from 'react'
+import { RotatingLines } from 'react-loader-spinner'
+import Postagem from '../../../models/Postagem'
 
 function DeletarPostagem() {
+
+  const [isLoading, setIsLoading] = useState<boolean>(false)
+
   const [postagem, setPostagem] = useState<Postagem>({} as Postagem)
 
   let navigate = useNavigate()
@@ -23,7 +28,7 @@ function DeletarPostagem() {
       })
     } catch (error: any) {
       if (error.toString().includes('403')) {
-        alert('O token expirou, favor logar novamente')
+        toastAlerta('O token expirou, favor logar novamente', 'info')
         handleLogout()
       }
     }
@@ -31,7 +36,7 @@ function DeletarPostagem() {
 
   useEffect(() => {
     if (token === '') {
-      alert('Você precisa estar logado')
+      toastAlerta('Você precisa estar logado', 'erro')
       navigate('/login')
     }
   }, [token])
@@ -47,6 +52,8 @@ function DeletarPostagem() {
   }
 
   async function deletarPostagem() {
+    setIsLoading(true)
+
     try {
       await deletar(`/postagens/${id}`, {
         headers: {
@@ -54,12 +61,13 @@ function DeletarPostagem() {
         }
       })
 
-      alert('Postagem apagada com sucesso')
+      toastAlerta('Postagem apagada com sucesso', 'sucesso')
 
     } catch (error) {
-      alert('Erro ao apagar a Postagem')
+      toastAlerta('Erro ao apagar a Postagem', 'erro')
     }
 
+    setIsLoading(false)
     retornar()
   }
   return (
@@ -77,7 +85,18 @@ function DeletarPostagem() {
         <div className="flex">
           <button className='text-slate-100 bg-red-400 hover:bg-red-600 w-full py-2' onClick={retornar}>Não</button>
           <button className='w-full text-slate-100 bg-indigo-400 hover:bg-indigo-600 flex items-center justify-center' onClick={deletarPostagem}>
-            Sim
+                        
+            {isLoading ?
+              <RotatingLines
+                strokeColor="white"
+                strokeWidth="5"
+                animationDuration="0.75"
+                width="24"
+                visible={true}
+              /> :
+              <span>Sim</span>
+            }      
+            
           </button>
         </div>
       </div>
