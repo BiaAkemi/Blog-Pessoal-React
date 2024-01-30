@@ -1,6 +1,7 @@
 import React, { ChangeEvent, useEffect, useState } from 'react'
 import { cadastrarUsuario } from '../../services/Service'
 import { toastAlerta } from "../../util/toastAlerta"
+import { RotatingLines } from 'react-loader-spinner'
 import { useNavigate } from 'react-router-dom'
 import Usuario from '../../models/Usuario'
 import './Cadastro.css'
@@ -8,6 +9,8 @@ import './Cadastro.css'
 function Cadastro() {
 
   let navigate = useNavigate()
+
+  const [isLoading, setIsLoading] = useState<boolean>(false)
 
   const [confirmaSenha, setConfirmaSenha] = useState<string>("")
 
@@ -139,7 +142,15 @@ function Cadastro() {
               Cancelar
             </button>
             <button className='rounded text-white bg-[#7B68EE] hover:bg-[#6A5ACD] w-1/2 py-2' type='submit'>
-              Cadastrar
+              {
+                isLoading ? <RotatingLines
+                  strokeColor="white"
+                  strokeWidth="5"
+                  animationDuration="0.75"
+                  width="24"
+                  visible={true}
+              /> :    
+                <span>Cadastrar</span>}
             </button>
           </div>
         </form>

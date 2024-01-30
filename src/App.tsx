@@ -1,24 +1,21 @@
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
-import './App.css';
-import 'react-toastify/dist/ReactToastify.css';
-import Login from './pages/login/Login';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { AuthProvider } from './contexts/AuthContext';
-import { ToastContainer } from 'react-toastify';
-import Cadastro from './pages/cadastro/Cadastro';
-import Navbar from './components/navBar/NavBar';
-import Home from './pages/home/Home';
-import Footer from './components/footer/Footer';
-import ListaTemas from './components/temas/listaTemas/ListaTemas';
+import FormularioPostagem from './components/postagens/formularioPostagem/FormularioPostagem';
+import DeletarPostagem from './components/postagens/deletarPostagem/DeletarPostagem';
+import ListaPostagens from './components/postagens/listaPostagens/ListaPostagens';
 import FormularioTema from './components/temas/formularioTema/FormularioTema';
 import DeletarTema from './components/temas/deletarTema/DeletarTema';
-import ListaPostagens from './components/postagens/listaPostagens/ListaPostagens';
-import FormularioPostagem from './components/postagens/formularioPostagem/FormularioPostagem';
-
+import ListaTemas from './components/temas/listaTemas/ListaTemas';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { AuthProvider } from './contexts/AuthContext';
+import Cadastro from './pages/cadastro/Cadastro';
+import Footer from './components/footer/Footer';
+import { ToastContainer } from 'react-toastify';
+import Navbar from './components/navBar/NavBar';
+import 'react-toastify/dist/ReactToastify.css';
 import Perfil from './pages/perfil/Perfil';
-import DeletarPostagem from './components/postagens/deletarPostagem/DeletarPostagem';
+import Login from './pages/login/Login';
+import Home from './pages/home/Home';
+import './App.css';
+
 
 function App() {
   
