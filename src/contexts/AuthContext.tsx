@@ -1,5 +1,5 @@
 import { createContext, ReactNode, useState } from "react"
-import { toastAlerta } from "../util/toastAlerta"
+import { toastAlerta } from "../utils/toastAlerta"
 import UsuarioLogin from "../models/UsuarioLogin"
 import { login } from "../services/Service"
 
@@ -30,7 +30,6 @@ export function AuthProvider({ children }: AuthProviderProps) {
         token: ""
     })
 
-    // isLoading é incializado falso porque não tem nada carregando, já que não está logado
     const [isLoading, setIsLoading] = useState(false)
 
     

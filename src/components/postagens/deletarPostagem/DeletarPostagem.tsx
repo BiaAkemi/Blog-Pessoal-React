@@ -1,7 +1,7 @@
 import { buscar, deletar } from '../../../services/Service'
 import { AuthContext } from '../../../contexts/AuthContext'
 import { useNavigate, useParams } from 'react-router-dom'
-import { toastAlerta } from '../../../util/toastAlerta'
+import { toastAlerta } from '../../../utils/toastAlerta'
 import { useContext, useEffect, useState } from 'react'
 import { RotatingLines } from 'react-loader-spinner'
 import Postagem from '../../../models/Postagem'

@@ -1,5 +1,5 @@
 import { AuthContext } from '../../contexts/AuthContext';
-import { toastAlerta } from '../../util/toastAlerta';
+import { toastAlerta } from '../../utils/toastAlerta';
 import { Link, useNavigate } from 'react-router-dom';
 import React, { useContext } from 'react';
 

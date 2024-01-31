@@ -2,7 +2,7 @@ import React, { ChangeEvent, useContext, useEffect, useState } from 'react';
 import { buscar, atualizar, cadastrar } from '../../../services/Service';
 import { AuthContext } from '../../../contexts/AuthContext';
 import { useNavigate, useParams } from 'react-router-dom';
-import { toastAlerta } from '../../../util/toastAlerta';
+import { toastAlerta } from '../../../utils/toastAlerta';
 import { RotatingLines } from 'react-loader-spinner';
 import Postagem from '../../../models/Postagem';
 import Tema from '../../../models/Tema';
@@ -96,6 +96,7 @@ function FormularioPostagem() {
 
   async function gerarNovaPostagem(e: ChangeEvent<HTMLFormElement>) {
     e.preventDefault();
+    setIsLoading(true)
 
     console.log({ postagem });
 
@@ -140,6 +141,7 @@ function FormularioPostagem() {
         }
       }
     }
+    setIsLoading(false)
   }
 
   const carregandoTema = tema.descricao === '';

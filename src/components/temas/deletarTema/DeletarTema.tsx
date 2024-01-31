@@ -1,6 +1,6 @@
 import { AuthContext } from '../../../contexts/AuthContext'
 import { buscar, deletar } from '../../../services/Service'
-import { toastAlerta } from '../../../util/toastAlerta'
+import { toastAlerta } from '../../../utils/toastAlerta'
 import { useContext, useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
 import { RotatingLines } from 'react-loader-spinner'

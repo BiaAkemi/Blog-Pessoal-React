@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useEffect, useState } from 'react'
 import { cadastrarUsuario } from '../../services/Service'
-import { toastAlerta } from "../../util/toastAlerta"
+import { toastAlerta } from "../../utils/toastAlerta"
 import { RotatingLines } from 'react-loader-spinner'
 import { useNavigate } from 'react-router-dom'
 import Usuario from '../../models/Usuario'
@@ -66,8 +66,8 @@ function Cadastro() {
 
     } else {
       toastAlerta ('Dados inconsistentes. Verifique as informações de cadastro.', 'erro')
-      setUsuario({ ...usuario, senha: "" }) // Reinicia o campo de Senha
-      setConfirmaSenha("")                  // Reinicia o campo de Confirmar Senha
+      setUsuario({ ...usuario, senha: "" }) 
+      setConfirmaSenha("")                  
     }
   }
 

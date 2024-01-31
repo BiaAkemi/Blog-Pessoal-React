@@ -68,7 +68,7 @@ function login(e: ChangeEvent<HTMLFormElement>) {
             />
           </div>
           <button  type='submit' className="rounded bg-[#7B68EE] hover:bg-[#6A5ACD] text-white w-1/2 py-2 flex justify-center">
-           {isLoading ? <RotatingLines
+          {isLoading ? <RotatingLines
             strokeColor="white"
             strokeWidth="5"
             animationDuration="0.75"

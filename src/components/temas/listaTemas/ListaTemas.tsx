@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../contexts/AuthContext';
-import { toastAlerta } from '../../../util/toastAlerta';
+import { toastAlerta } from '../../../utils/toastAlerta';
 import { buscar } from '../../../services/Service';
 import { useNavigate } from 'react-router-dom';
 import CardTemas from '../cardTemas/CardTemas';

@@ -2,7 +2,7 @@ import { atualizar, buscar, cadastrar } from '../../../services/Service';
 import { ChangeEvent, useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../contexts/AuthContext';
 import { useNavigate, useParams } from 'react-router-dom';
-import { toastAlerta } from '../../../util/toastAlerta'
+import { toastAlerta } from '../../../utils/toastAlerta'
 import { RotatingLines } from 'react-loader-spinner';
 import Tema from '../../../models/Tema';
 
@@ -60,10 +60,10 @@ function FormularioTema() {
 
             } catch (error: any) {
                 if (error.toString().includes('403')) {
-                  toastAlerta('O token expirou, favor logar novamente','info')
+                    toastAlerta('O token expirou, favor logar novamente','info')
                     handleLogout()
                 } else {
-                  toastAlerta('Erro ao atualizar o Tema','erro')
+                    toastAlerta('Erro ao atualizar o Tema','erro')
                 }
             }
 
@@ -80,10 +80,10 @@ function FormularioTema() {
 
             } catch (error: any) {
                 if (error.toString().includes('403')) {
-                  toastAlerta('O token expirou, favor logar novamente','info')
+                    toastAlerta('O token expirou, favor logar novamente','info')
                     handleLogout()
                 } else {
-                  toastAlerta('Erro ao cadastrado o Tema','erro')
+                    toastAlerta('Erro ao cadastrado o Tema','erro')
                 }
             }
         }
@@ -98,7 +98,7 @@ function FormularioTema() {
 
     useEffect(() => {
         if (token === '') {
-            toastAlerta('Você precisa estar logado','info')
+            toastAlerta('Você precisa estar logado','erro')
             navigate('/login')
         }
     }, [token])
@@ -123,7 +123,7 @@ function FormularioTema() {
                     />
                 </div>
                 <button
-                    className="rounded text-slate-100 bg-indigo-400 hover:bg-indigo-800 w-1/2 py-2 mx-auto flex justify-center "
+                    className="rounded text-slate-100 bg-[#7B68EE] hover:bg-[#6A5ACD] w-1/2 py-2 mx-auto flex justify-center "
                     type="submit"
                 >
                     {isLoading ?
