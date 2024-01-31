@@ -6,6 +6,15 @@ interface CardPostagemProps {
 }
 
 function CardPostagem({post}: CardPostagemProps) {
+
+  let datadoBanco = new Date (posta.data);
+  dataDoBanco.setHours(dataDoBanco.getHours() - 3);
+
+  let dataLocal = new Intl.DateTimeFormat(undefined, {
+    dateStyle: 'full',
+    timeStyle: 'medium',
+}).format(dataDoBanco)
+
   return (
     <div className='border-slate-900 border flex flex-col rounded overflow-hidden justify-between'>
       <div>
